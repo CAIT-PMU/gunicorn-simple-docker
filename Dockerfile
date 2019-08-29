@@ -6,8 +6,8 @@ RUN pip install gunicorn json-logging-py
 COPY logging.conf /logging.conf
 COPY gunicorn.conf /gunicorn.conf
 
-COPY myapp.py /
+COPY app.py /
 
 EXPOSE 8000
 
-ENTRYPOINT ["/usr/local/bin/gunicorn", "--config", "/gunicorn.conf", "--log-config", "/logging.conf", "-b", ":8000", "myapp:app"]
+ENTRYPOINT ["/usr/local/bin/gunicorn", "--config", "/gunicorn.conf", "--log-config", "/logging.conf", "-b", ":8000", "app:app"]
